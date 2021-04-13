@@ -6,4 +6,4 @@ Micro Controller: https://www.ti.com/product/MSP432P401R
 LCD: https://www.orientdisplay.com/products/amc1602cr-b-y6wfdy-16x2-character-lcd-module/
 Keypad: https://www.parallax.com/product/4x4-matrix-membrane-keypad/
 
-This project was provided by Professor Paul Hummel at Calm Poly San Luis Obispo. All code written within this document was written by me for use by others.
+This project was provided by Professor Paul Hummel at Cal Poly San Luis Obispo. All code written within this document was written by me for use by others.
