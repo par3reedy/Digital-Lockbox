@@ -1,5 +1,4 @@
-//Patrick Reedy, Cal Poly SLO, 4/12/2021
-//This C file gives the structure and functions for the LCD Display used in the digital lockbox.
+//Patrick Reedy and Oscar Gonzalez, Cal Poly SLO, 4/12/2021
 //LCD Datasheet: https://www.orientdisplay.com/pdf/CharFull/AMC1602C-full.pdf
 
 #include "msp.h"                            //library used for the MSP32 micro controller
@@ -30,16 +29,12 @@ void lcd_init(void){
 
     //Now we must follow the minimum timing values to ensure operation.
     LCDCONTROLPORT->OUT &= ~(RS | RW);      //Set RS and RW to 0
-    LCDDATAPORT->OUT |= (BIT4 | BIT5);      //Set data pins 4 and 5 to 1 (0011)
-    LCDCONTROLPORT->OUT |= E;               //Set Enable to high
-    __delay_us(1);                          //Delay for 1us (must be a delay greater than 140ns)
-    LCDCONTROLPORT->OUT &= ~E;              //Set Enable low
-    __delay_us(39);                         //Delay for 39us
-    lcd_command(FUNCTION_SET);              //Set how the display works
-    lcd_command(FUNCTION_SET);
+    lcd_command(FUNCTION_SET1);             //Set interface data length
+    lcd_command(FUNCTION_SET2);             //Set how the display works
+    lcd_command(FUNCTION_SET2);
     lcd_command(DISPLAY_ON);                //Display on, cursor off, blink off
     lcd_command(CLEAR_DISPLAY);             //Clear the display
-    lcd_command(0x06);                      //Increment cursor, no shift
+    lcd_command(ENTRY_MODE_SET);            //Set cursor, no shift
 }
 
 //lcd_command is designed to take in an 8-bit command and send that signal in 4-bit interface format

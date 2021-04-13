@@ -1,4 +1,4 @@
-//Patrick Reedy, Cal Poly SLO, 4/12/2021
+//Patrick Reedy and Oscar Gonzalez, Cal Poly SLO, 4/12/2021
 //This header file contains information used to describe the board and LCD
 
 #ifndef LCD_H_
@@ -21,7 +21,9 @@
 #define DISPLAY_ON      0x0C                                //Display on
 #define CURSOR_ON       0x0A                                //Cursor on
 #define CURSOR_BLINK    0x09                                //Cursor blink on
-#define FUNCTION_SET    0x28                                //Specific to this LCD (4-bit mode, 2 line, 5x8 font)
+#define FUNCTION_SET1   0x30                                //Set data length of interface
+#define FUNCTION_SET2   0x28                                //Specific to this LCD (4-bit mode, 2 line, 5x8 font)
+#define ENTRY_MODE_SET  0x06                                //Assign cursor direction and no shoft of display
 
 //Delay definition
 #define CPU_FREQ 3000000
